@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestone Achiever - Project Code</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; line-height: 1.6; padding: 20px; color: #333; background-color: #f9f9f9; }
+        .file-block { background-color: #fff; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 2em; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .file-header { background-color: #f0f0f0; padding: 10px 15px; border-bottom: 1px solid #ddd; font-weight: bold; font-family: "Courier New", Courier, monospace; border-top-left-radius: 8px; border-top-right-radius: 8px; }
+        pre { white-space: pre-wrap; word-wrap: break-word; padding: 15px; margin: 0; overflow-x: auto; font-size: 14px; background-color: #fff; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;}
+        code { font-family: "Courier New", Courier, monospace; }
+    </style>
+</head>
+<body>
+    <h1>Project Code: Milestone Achiever</h1>
+    <p>This file contains the complete source code for all the files in the project. Note: This is a reference file and not a functional website.</p>
+
+    <div class="file-block">
+        <div class="file-header">.vscode/settings.json</div>
+        <pre><code>
+{
+    "IDX.aI.enableInlineCompletion": true,
+    "IDX.aI.enableCodebaseIndexing": true
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">README.md</div>
+        <pre><code>
+# Firebase Studio
+
+This is a NextJS starter in Firebase Studio.
+
+To get started, take a look at src/app/page.tsx.
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">apphosting.yaml</div>
+        <pre><code>
+# Settings to manage and configure a Firebase App Hosting backend.
+# https://firebase.google.com/docs/app-hosting/configure
+
+runConfig:
+  # Increase this value if you'd like to automatically spin up
+  # more instances in response to increased traffic.
+  maxInstances: 1
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">components.json</div>
+        <pre><code>
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "src/app/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "iconLibrary": "lucide"
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">next.config.ts</div>
+        <pre><code>
+import type {NextConfig} from 'next';
+
+const nextConfig: NextConfig = {
+  /* config options here */
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+};
+
+export default nextConfig;
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">package.json</div>
+        <pre><code>
+{
+  "name": "nextn",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack -p 9002",
+    "genkit:dev": "genkit start -- tsx src/ai/dev.ts",
+    "genkit:watch": "genkit start -- tsx --watch src/ai/dev.ts",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@genkit-ai/googleai": "^1.13.0",
+    "@genkit-ai/next": "^1.13.0",
+    "@hookform/resolvers": "^4.1.3",
+    "@radix-ui/react-accordion": "^1.2.3",
+    "@radix-ui/react-alert-dialog": "^1.1.6",
+    "@radix-ui/react-avatar": "^1.1.3",
+    "@radix-ui/react-checkbox": "^1.1.4",
+    "@radix-ui/react-collapsible": "^1.1.11",
+    "@radix-ui/react-dialog": "^1.1.6",
+    "@radix-ui/react-dropdown-menu": "^2.1.6",
+    "@radix-ui/react-label": "^2.1.2",
+    "@radix-ui/react-menubar": "^1.1.6",
+    "@radix-ui/react-popover": "^1.1.6",
+    "@radix-ui/react-progress": "^1.1.2",
+    "@radix-ui/react-radio-group": "^1.2.3",
+    "@radix-ui/react-scroll-area": "^1.2.3",
+    "@radix-ui/react-select": "^2.1.6",
+    "@radix-ui/react-separator": "^1.1.2",
+    "@radix-ui/react-slider": "^1.2.3",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-switch": "^1.1.3",
+    "@radix-ui/react-tabs": "^1.1.3",
+    "@radix-ui/react-toast": "^1.2.6",
+    "@radix-ui/react-tooltip": "^1.1.8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "dotenv": "^16.5.0",
+    "embla-carousel-react": "^8.6.0",
+    "firebase": "^11.9.1",
+    "genkit": "^1.13.0",
+    "lucide-react": "^0.475.0",
+    "next": "15.3.3",
+    "patch-package": "^8.0.0",
+    "react": "^18.3.1",
+    "react-day-picker": "^8.10.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.2",
+    "recharts": "^2.15.1",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "genkit-cli": "^1.13.0",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/ai/dev.ts</div>
+        <pre><code>
+// Flows will be imported for their side effects in this file.
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/ai/genkit.ts</div>
+        <pre><code>
+import {genkit} from 'genkit';
+import {googleAI} from '@genkit-ai/googleai';
+
+export const ai = genkit({
+  plugins: [googleAI()],
+  model: 'googleai/gemini-2.0-flash',
+});
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/app/about/page.tsx</div>
+        <pre><code>
+'use client';
+
+import React, { useContext, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { AppContext } from '@/components/AppShell';
+import { Card, CardContent } from '@/components/ui/card';
+
+export default function AboutUsPage() {
+    const context = useContext(AppContext);
+    const router = useRouter();
+
+    useEffect(() => {
+        if (context && !context.isStudentLoggedIn && !context.isAdminLoggedIn) {
+            router.push('/');
+        }
+    }, [context, router]);
+
+    if (!context || (!context.isStudentLoggedIn && !context.isAdminLoggedIn)) {
+        return <div className="text-center text-white mt-10">&lt;p&gt;Please log in to view this page.&lt;/p&gt;</div>;
+    }
+
+    const { aboutUs } = context;
+
+    return (
+        <div className="flex justify-center mt-8">
+          <h1 className="text-3xl font-bold text-center text-white mb-6 absolute -top-2">About Us</h1>
+          {aboutUs.map((item, index) => (
+             <Card key={index} className="bg-white/20 backdrop-blur-sm border-gray-400 text-white text-center w-full max-w-sm">
+              <CardContent className="p-4">
+                <Image src={item.image} alt={item.name} width={220} height={150} data-ai-hint={item.hint} className="mx-auto rounded-lg mb-4" />
+                <h3 className="text-xl font-bold">{item.name}</h3>
+                <p className="text-gray-300">{item.title}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+    );
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/app/courses/page.tsx</div>
+        <pre><code>
+'use client';
+
+import React, { useContext, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { AppContext } from '@/components/AppShell';
+import { Card, CardContent } from '@/components/ui/card';
+
+export default function CoursesPage() {
+    const context = useContext(AppContext);
+    const router = useRouter();
+
+    useEffect(() => {
+        if (context && !context.isStudentLoggedIn && !context.isAdminLoggedIn) {
+            router.push('/');
+        }
+    }, [context, router]);
+
+    if (!context || (!context.isStudentLoggedIn && !context.isAdminLoggedIn)) {
+        return <div className="text-center text-white mt-10">&lt;p&gt;Please log in to view this page.&lt;/p&gt;</div>;
+    }
+
+    const { courses } = context;
+
+    return (
+        <div>
+            <h1 className="text-3xl font-bold text-center text-white mb-6">Our Courses</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                {courses.map((course, index) => (
+                    <Card key={index} className="bg-white/20 backdrop-blur-sm border-gray-400 text-white text-center">
+                    <CardContent className="p-4">
+                        <Image src={course.image} alt={course.name} width={220} height={150} data-ai-hint={course.hint} className="mx-auto rounded-lg mb-4" />
+                        <h3 className="text-xl font-bold">{course.name}</h3>
+                        <p className="text-gray-300">{course.title}</p>
+                    </CardContent>
+                    </Card>
+                ))}
+            </div>
+        </div>
+    );
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/app/feed/page.tsx</div>
+        <pre><code>
+'use client';
+
+import React, { useContext, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { AppContext } from '@/components/AppShell';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Trash2 } from 'lucide-react';
+
+export default function FeedPage() {
+    const context = useContext(AppContext);
+    const router = useRouter();
+
+    useEffect(() => {
+        if (context && !context.isStudentLoggedIn && !context.isAdminLoggedIn) {
+            router.push('/');
+        }
+    }, [context, router]);
+
+    if (!context || (!context.isStudentLoggedIn && !context.isAdminLoggedIn)) {
+        return <div className="text-center text-white mt-10">&lt;p&gt;Please log in to view this page.&lt;/p&gt;</div>;
+    }
+
+    const { posts, isAdminLoggedIn, handleDeletePost } = context;
+
+    return (
+        <div>
+            <h1 className='text-3xl font-bold text-center text-white mb-6'>All Posts</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {posts.length > 0 ? (
+                posts.map((post, index) => (
+                  <Card key={index} className="bg-white/20 backdrop-blur-sm border-gray-400 text-white relative">
+                     {isAdminLoggedIn && (
+                        <Button variant="destructive" size="icon" className="absolute top-2 right-2 h-7 w-7 z-10" onClick={() => handleDeletePost(post.timestamp)}>
+                            <Trash2 className="h-4 w-4" />
+                        </Button>
+                    )}
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                         <Image src={post.authorImage} alt="poster" width={40} height={40} className="rounded-full" />
+                         {post.authorName}
+                      </CardTitle>
+                      <CardDescription className="text-gray-300">{new Date(post.timestamp).toLocaleString()}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      {post.text && <p className="mb-4">{post.text}</p>}
+                      {post.image && <Image src={post.image} alt="Post image" width={400} height={300} className="rounded-lg mx-auto w-full object-cover" data-ai-hint="student post" />}
+                    </CardContent>
+                  </Card>
+                ))
+              ) : (
+                <p className="text-center text-white col-span-full">No posts submitted yet.</p>
+              )}
+            </div>
+        </div>
+    );
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/app/globals.css</div>
+        <pre><code>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 67% 94%;
+    --foreground: 275 50% 15%;
+    --card: 240 67% 98%;
+    --card-foreground: 275 50% 15%;
+    --popover: 240 67% 98%;
+    --popover-foreground: 275 50% 15%;
+    --primary: 275 100% 25%;
+    --primary-foreground: 240 67% 97%;
+    --secondary: 275 30% 85%;
+    --secondary-foreground: 275 100% 25%;
+    --muted: 275 30% 90%;
+    --muted-foreground: 275 20% 40%;
+    --accent: 276 100% 50%;
+    --accent-foreground: 240 67% 97%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 275 20% 80%;
+    --input: 275 20% 88%;
+    --ring: 276 100% 50%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 275 20% 8%;
+    --foreground: 240 67% 94%;
+    --card: 275 20% 12%;
+    --card-foreground: 240 67% 94%;
+    --popover: 275 20% 8%;
+    --popover-foreground: 240 67% 94%;
+    --primary: 240 67% 94%;
+    --primary-foreground: 275 100% 15%;
+    --secondary: 275 20% 15%;
+    --secondary-foreground: 240 67% 94%;
+    --muted: 275 20% 15%;
+    --muted-foreground: 240 20% 60%;
+    --accent: 276 100% 60%;
+    --accent-foreground: 275 20% 5%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 275 20% 20%;
+    --input: 275 20% 20%;
+    --ring: 276 100% 60%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.logo-container {
+  text-align: center;
+  animation: fadeIn 4s ease-in-out;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  filter: drop-shadow(0 0 15px rgba(0, 123, 255, 0.6));
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.8));
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.typing-h1 {
+  font-size: 29px;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid darkturquoise;
+  width: 0;
+  animation: typing 4s steps(30, end) forwards, blink 0.6s infinite;
+  margin: 0 auto;
+  color: ghostwhite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 23ch;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.scrolling-alert-container {
+  width: 100%;
+  overflow: hidden;
+  background: white;
+  border: 2px solid deepskyblue;
+}
+
+.scrolling-alert-text {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: scroll-left 15s linear infinite;
+  font-size: 26px;
+  font-weight: bold;
+  color: darkblue;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/app/layout.tsx</div>
+        <pre><code>
+import type {Metadata} from 'next';
+import './globals.css';
+import { cn } from '@/lib/utils';
+import { Toaster } from '@/components/ui/toaster';
+import { AppShell } from '@/components/AppShell';
+
+export const metadata: Metadata = {
+  title: 'Milestone Achiever',
+  description: 'Your partner in academic excellence.',
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="h-full">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+      </head>
+      <body className={cn('font-body antialiased bg-background text-foreground')}>
+        <AppShell>
+          {children}
+        </AppShell>
+        <Toaster />
+      </body>
+    </html>
+  );
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/app/mentors/page.tsx</div>
+        <pre><code>
+'use client';
+
+import React, { useContext, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { AppContext } from '@/components/AppShell';
+import { Card, CardContent } from '@/components/ui/card';
+
+export default function MentorsPage() {
+    const context = useContext(AppContext);
+    const router = useRouter();
+
+    useEffect(() => {
+        if (context && !context.isStudentLoggedIn && !context.isAdminLoggedIn) {
+            router.push('/');
+        }
+    }, [context, router]);
+
+    if (!context || (!context.isStudentLoggedIn && !context.isAdminLoggedIn)) {
+        return <div className="text-center text-white mt-10">&lt;p&gt;Please log in to view this page.&lt;/p&gt;</div>;
+    }
+
+    const { mentors } = context;
+
+    return (
+        <div>
+            <h1 className="text-3xl font-bold text-center text-white mb-6">Our Mentors</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            {mentors.map((mentor, index) => (
+                <Card key={index} className="bg-white/20 backdrop-blur-sm border-gray-400 text-white text-center">
+                <CardContent className="p-4">
+                    <Image src={mentor.image} alt={mentor.name} width={220} height={150} data-ai-hint={mentor.hint} className="mx-auto rounded-lg mb-4" />
+                    <h3 className="text-xl font-bold">{mentor.name}</h3>
+                    <p className="text-gray-300">{mentor.title}</p>
+                </CardContent>
+                </Card>
+            ))}
+            </div>
+        </div>
+    );
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/app/page.tsx</div>
+        <pre><code>
+'use client';
+
+import React, { useContext } from 'react';
+import Image from 'next/image';
+import { AppContext } from '@/components/AppShell';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ImagePlus, PlusCircle, Trash2, UserPlus, X } from 'lucide-react';
+import { useToast } from "@/hooks/use-toast";
+
+
+export default function HomePage() {
+  const context = useContext(AppContext);
+
+  if (!context) {
+    return null; // or a loading spinner
+  }
+
+  const {
+    isStudentLoggedIn, isAdminLoggedIn,
+    posts, handleDeletePost, studentName, profilePic, postText, setPostText,
+    postImage, setPostImage, handlePostImageUpload, handlePostSubmit,
+    mentors, setMentors, handleContentChange, handleListImageUpload, handleAddItem, handleDeleteItem,
+    routines, setRoutines,
+    courses, setCourses,
+    results, setResults,
+    aboutUs, setAboutUs,
+    allowedUsers, handleAddStudent, handleDeleteStudent, handleStudentIdUpdate, handleStudentPhoneUpdate,
+    logoImage, setLogoImage, backgroundImage, setBackgroundImage, handleImageUpload,
+    urgentNotice, handleNoticeChange,
+    newAdminPassword, setNewAdminPassword, handlePasswordUpdate,
+  } = context;
+  
+  const { toast } = useToast();
+
+  return (
+    <>
+      {(isStudentLoggedIn || isAdminLoggedIn) ? (
+        <div className="mt-8">
+          <h2 className="text-3xl font-bold text-center text-white mb-6">Live Feed</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {posts.map((post, index) => (
+              <Card key={index} className="bg-white/20 backdrop-blur-sm border-gray-400 text-white relative">
+                  {isAdminLoggedIn && (
+                      <Button variant="destructive" size="icon" className="absolute top-2 right-2 h-7 w-7 z-10" onClick={() => handleDeletePost(post.timestamp)}>
+                          <Trash2 className="h-4 w-4" />
+                      </Button>
+                  )}
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Image src={post.authorImage} alt="poster" width={40} height={40} className="rounded-full" />
+                    {post.authorName}
+                  </CardTitle>
+                  <CardDescription className="text-gray-300">{new Date(post.timestamp).toLocaleString()}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {post.text && <p className="mb-4">{post.text}</p>}
+                  {post.image && <Image src={post.image} alt="Post image" width={400} height={300} className="rounded-lg mx-auto w-full object-cover" data-ai-hint="student post" />}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="text-center text-white mt-16">
+            <h2 className="text-4xl font-bold mb-4">Welcome to Milestone Academic Care</h2>
+            <p className="text-xl">Please log in to access the portal.</p>
+        </div>
+      )}
+
+      {isStudentLoggedIn && (
+         <Card className="fixed bottom-4 left-1/2 -translate-x-1/2 w-11/12 max-w-2xl bg-white/30 backdrop-blur-md border-gray-400 z-50">
+          <CardHeader>
+              <CardTitle>What's on your mind, {studentName}?</CardTitle>
+          </CardHeader>
+          <CardContent className="flex items-start gap-4">
+              <Image src={profilePic} alt="Your profile" width={40} height={40} className="rounded-full" />
+              <div className="w-full space-y-2">
+                <Textarea placeholder="Share an update with your peers..." value={postText} onChange={(e) => setPostText(e.target.value)} className="text-black" />
+                {postImage && (
+                  <div className="relative w-fit">
+                    <Image src={postImage} alt="Post preview" width={100} height={100} className="rounded-md object-cover" />
+                    <Button variant="destructive" size="icon" className="absolute -top-2 -right-2 h-6 w-6 rounded-full" onClick={() => setPostImage(null)}>
+                      <X className="h-4 w-4" />
+                    </Button>
+                  </div>
+                )}
+                 <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-4">
+                      <div className='flex items-center gap-2'>
+                        <label htmlFor="upload-post-image" className="cursor-pointer text-white hover:text-blue-300">
+                           <ImagePlus className="h-6 w-6" />
+                        </label>
+                        <input type="file" id="upload-post-image" accept="image/*" onChange={handlePostImageUpload} className="hidden" />
+                        <span className="text-xs text-white">Photo</span>
+                      </div>
+                    </div>
+                    <Button onClick={handlePostSubmit}>Post</Button>
+                 </div>
+              </div>
+          </CardContent>
+        </Card>
+      )}
+      
+      {isAdminLoggedIn && (
+        <Card className='text-white p-4 max-w-4xl mx-auto bg-white/20 backdrop-blur-sm border-gray-400 mt-8'>
+          <CardHeader>
+              <CardTitle>🎮 Admin Panel - Edit Your Website</CardTitle>
+              <CardDescription>All changes you make are saved automatically.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Tabs defaultValue="notice">
+                <TabsList className="grid w-full grid-cols-9">
+                    <TabsTrigger value="branding">Branding</TabsTrigger>
+                    <TabsTrigger value="notice">Notice</TabsTrigger>
+                    <TabsTrigger value="mentors">Mentors</TabsTrigger>
+                    <TabsTrigger value="routines">Routines</TabsTrigger>
+                    <TabsTrigger value="courses">Courses</TabsTrigger>
+                    <TabsTrigger value="results">Results</TabsTrigger>
+                    <TabsTrigger value="about">About</TabsTrigger>
+                    <TabsTrigger value="students">Students</TabsTrigger>
+                    <TabsTrigger value="security">Security</TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="branding" className="mt-4 space-y-4">
+                    <Card className="bg-white/10 p-4">
+                        <div className="space-y-2">
+                            <Label htmlFor="logo-upload">🖼️ Upload New Logo:</Label>
+                            <Input 
+                                id="logo-upload" 
+                                type="file" 
+                                accept="image/*" 
+                                onChange={(e) => handleImageUpload(e, setLogoImage, "logoImage")} 
+                                className="text-white file:text-sm file:font-medium file:text-white"
+                            />
+                        </div>
+                    </Card>
+                    <Card className="bg-white/10 p-4">
+                        <div className="space-y-2">
+                             <Label htmlFor="bg-upload">🎨 Upload New Background:</Label>
+                             <Input 
+                                id="bg-upload" 
+                                type="file" 
+                                accept="image/*" 
+                                onChange={(e) => handleImageUpload(e, setBackgroundImage, "backgroundImage")} 
+                                className="text-white file:text-sm file:font-medium file:text-white"
+                             />
+                        </div>
+                    </Card>
+                </TabsContent>
+
+                <TabsContent value="notice" className="mt-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="notice-text">📢 Update Urgent Notice:</Label>
+                      <Input id="notice-text" type="text" value={urgentNotice} onChange={handleNoticeChange} placeholder="Enter new notice" className="text-black" />
+                    </div>
+                </TabsContent>
+                
+                <TabsContent value="mentors" className="mt-4 space-y-4">
+                    {mentors.map((mentor, index) => (
+                        <Card key={index} className="bg-white/10 p-4 relative">
+                           <Button variant="destructive" size="icon" className="absolute top-2 right-2 h-7 w-7 z-10" onClick={() => handleDeleteItem(mentors, setMentors, "mentorsData", index)}>
+                                <Trash2 className="h-4 w-4" />
+                           </Button>
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+                                <div className="space-y-4">
+                                    <Input value={mentor.name} onChange={(e) => handleContentChange(mentors, setMentors, 'mentorsData', index, 'name', e.target.value)} placeholder="Mentor Name" className="text-black"/>
+                                    <Input value={mentor.title} onChange={(e) => handleContentChange(mentors, setMentors, 'mentorsData', index, 'title', e.target.value)} placeholder="Mentor Title" className="text-black"/>
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor={`mentor-img-${index}`}>Mentor Image</Label>
+                                    <Input 
+                                        id={`mentor-img-${index}`} 
+                                        type="file" 
+                                        accept="image/*" 
+                                        onChange={(e) => handleListImageUpload(e, mentors, setMentors, 'mentorsData', index, 'image')}
+                                        className="text-white file:text-sm file:font-medium file:text-white"
+                                    />
+                                    {mentor.image && <Image src={mentor.image} alt="preview" width={100} height={60} className="mt-2 rounded-md object-cover" />}
+                                </div>
+                           </div>
+                        </Card>
+                    ))}
+                    <Button onClick={() => handleAddItem(mentors, setMentors, 'mentorsData', { name: "New Mentor", title: "Mentor Title", image: "https://placehold.co/220x150.png", hint: "male teacher" })} className="mt-4 w-full">
+                        <PlusCircle className="mr-2 h-4 w-4" />
+                        Add New Mentor
+                    </Button>
+                </TabsContent>
+
+                <TabsContent value="routines" className="mt-4 space-y-4">
+                   {routines.map((routine, index) => (
+                        <Card key={index} className="bg-white/10 p-4 relative">
+                            <Button variant="destructive" size="icon" className="absolute top-2 right-2 h-7 w-7 z-10" onClick={() => handleDeleteItem(routines, setRoutines, 'routineData', index)}>
+                                <Trash2 className="h-4 w-4" />
+                            </Button>
+                           <div className="flex flex-col md:flex-row items-start gap-4">
+                                <div className="flex-1 space-y-2 w-full">
+                                    <Label htmlFor={`routine-img-${index}`}>Routine Image {index + 1}</Label>
+                                    <Input 
+                                        id={`routine-img-${index}`} 
+                                        type="file" 
+                                        accept="image/*" 
+                                        onChange={(e) => handleListImageUpload(e, routines, setRoutines, 'routineData', index, 'src')}
+                                        className="text-white file:text-sm file:font-medium file:text-white"
+                                    />
+                                </div>
+                                {routine.src && <Image src={routine.src} alt="preview" width={150} height={100} className="mt-2 rounded-md object-cover" />}
+                            </div>
+                        </Card>
+                   ))}
+                    <Button onClick={() => handleAddItem(routines, setRoutines, 'routineData', { src: "https://placehold.co/600x400.png", hint: "class schedule" })} className="mt-4 w-full">
+                        <PlusCircle className="mr-2 h-4 w-4" />
+                        Add New Routine
+                    </Button>
+                </TabsContent>
+
+                <TabsContent value="courses" className="mt-4 space-y-4">
+                    {courses.map((course, index) => (
+                        <Card key={index} className="bg-white/10 p-4 relative">
+                            <Button variant="destructive" size="icon" className="absolute top-2 right-2 h-7 w-7 z-10" onClick={() => handleDeleteItem(courses, setCourses, 'coursesData', index)}>
+                                <Trash2 className="h-4 w-4" />
+                           </Button>
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+                               <div className="space-y-4">
+                                <Input value={course.name} onChange={(e) => handleContentChange(courses, setCourses, 'coursesData', index, 'name', e.target.value)} placeholder="Course Name" className="text-black"/>
+                                <Input value={course.title} onChange={(e) => handleContentChange(courses, setCourses, 'coursesData', index, 'title', e.target.value)} placeholder="Instructor" className="text-black"/>
+                               </div>
+                               <div className="space-y-2">
+                                    <Label htmlFor={`course-img-${index}`}>Course Image</Label>
+                                    <Input 
+                                        id={`course-img-${index}`} 
+                                        type="file" 
+                                        accept="image/*" 
+                                        onChange={(e) => handleListImageUpload(e, courses, setCourses, 'coursesData', index, 'image')}
+                                        className="text-white file:text-sm file:font-medium file:text-white"
+                                    />
+                                    {course.image && <Image src={course.image} alt="preview" width={100} height={60} className="mt-2 rounded-md object-cover" />}
+                               </div>
+                           </div>
+                        </Card>
+                    ))}
+                     <Button onClick={() => handleAddItem(courses, setCourses, 'coursesData', { name: "NEW COURSE", title: "INSTRUCTOR: NAME", image: "https://placehold.co/220x150.png", hint: "education subject" })} className="mt-4 w-full">
+                        <PlusCircle className="mr-2 h-4 w-4" />
+                        Add New Course
+                    </Button>
+                </TabsContent>
+
+                <TabsContent value="results" className="mt-4 space-y-4">
+                    {results.map((result, index) => (
+                        <Card key={index} className="bg-white/10 p-4 relative">
+                           <Button variant="destructive" size="icon" className="absolute top-2 right-2 h-7 w-7 z-10" onClick={() => handleDeleteItem(results, setResults, 'resultsData', index)}>
+                                <Trash2 className="h-4 w-4" />
+                           </Button>
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+                                <div className="space-y-4">
+                                    <Input value={result.name} onChange={(e) => handleContentChange(results, setResults, 'resultsData', index, 'name', e.target.value)} placeholder="Result Name" className="text-black"/>
+                                    <Input value={result.title} onChange={(e) => handleContentChange(results, setResults, 'resultsData', index, 'title', e.target.value)} placeholder="Result Title" className="text-black"/>
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor={`result-img-${index}`}>Result Image</Label>
+                                    <Input 
+                                        id={`result-img-${index}`} 
+                                        type="file" 
+                                        accept="image/*" 
+                                        onChange={(e) => handleListImageUpload(e, results, setResults, 'resultsData', index, 'image')}
+                                        className="text-white file:text-sm file:font-medium file:text-white"
+                                    />
+                                    {result.image && <Image src={result.image} alt="preview" width={100} height={60} className="mt-2 rounded-md object-cover" />}
+                                </div>
+                           </div>
+                        </Card>
+                    ))}
+                    <Button onClick={() => handleAddItem(results, setResults, 'resultsData', { name: "SSC-2027", title: "NEW RESULT", image: "https://placehold.co/220x150.png", hint: "exam results" })} className="mt-4 w-full">
+                        <PlusCircle className="mr-2 h-4 w-4" />
+                        Add New Result
+                    </Button>
+                </TabsContent>
+                
+                <TabsContent value="about" className="mt-4 space-y-4">
+                    {aboutUs.map((item, index) => (
+                        <Card key={index} className="bg-white/10 p-4">
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+                                <div className="space-y-4">
+                                    <Input value={item.name} onChange={(e) => handleContentChange(aboutUs, setAboutUs, 'aboutUsData', index, 'name', e.target.value)} placeholder="Name" className="text-black"/>
+                                    <Input value={item.title} onChange={(e) => handleContentChange(aboutUs, setAboutUs, 'aboutUsData', index, 'title', e.target.value)} placeholder="Title" className="text-black"/>
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor={`about-img-${index}`}>Image</Label>
+                                    <Input 
+                                        id={`about-img-${index}`} 
+                                        type="file" 
+                                        accept="image/*" 
+                                        onChange={(e) => handleListImageUpload(e, aboutUs, setAboutUs, 'aboutUsData', index, 'image')}
+                                        className="text-white file:text-sm file:font-medium file:text-white"
+                                    />
+                                    {item.image && <Image src={item.image} alt="preview" width={100} height={60} className="mt-2 rounded-md object-cover" />}
+                                </div>
+                           </div>
+                        </Card>
+                    ))}
+                </TabsContent>
+
+                <TabsContent value="students" className="mt-4 space-y-4">
+                    {Object.entries(allowedUsers).map(([macId, phone]) => (
+                        <Card key={macId} className="bg-white/10 p-4 relative">
+                            <Button variant="destructive" size="icon" className="absolute top-2 right-2 h-7 w-7 z-10" onClick={() => handleDeleteStudent(macId)}>
+                                <Trash2 className="h-4 w-4" />
+                            </Button>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                                <div className="space-y-2">
+                                    <Label htmlFor={`mac-id-${macId}`}>MAC ID</Label>
+                                    <Input 
+                                        id={`mac-id-${macId}`} 
+                                        defaultValue={macId} 
+                                        onBlur={(e) => handleStudentIdUpdate(macId, e.target.value)}
+                                        placeholder="Student MAC ID" 
+                                        className="text-black"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor={`phone-${macId}`}>Phone Number</Label>
+                                    <Input 
+                                        id={`phone-${macId}`} 
+                                        value={phone} 
+                                        onChange={(e) => handleStudentPhoneUpdate(macId, e.target.value)}
+                                        placeholder="Student Phone" 
+                                        className="text-black"
+                                    />
+                                </div>
+                            </div>
+                        </Card>
+                    ))}
+                    <Button onClick={handleAddStudent} className="mt-4 w-full">
+                        <UserPlus className="mr-2 h-4 w-4" />
+                        Add New Student
+                    </Button>
+                </TabsContent>
+
+                <TabsContent value="security" className="mt-4 space-y-4">
+                    <Card className="bg-white/10 p-4">
+                       <div className="space-y-4">
+                            <h3 className="text-xl font-bold">Admin Security</h3>
+                            <div className="space-y-2">
+                                <Label htmlFor="admin-password-change">Change Admin Password</Label>
+                                <Input 
+                                    id="admin-password-change"
+                                    type="password"
+                                    value={newAdminPassword}
+                                    onChange={(e) => setNewAdminPassword(e.target.value)}
+                                    placeholder="Enter new password"
+                                    className="text-black"
+                                />
+                            </div>
+                            <Button onClick={handlePasswordUpdate}>Update Password</Button>
+                       </div>
+                    </Card>
+                </TabsContent>
+            </Tabs>
+          </CardContent>
+        </Card>
+      )}
+    </>
+  );
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/app/payment/page.tsx</div>
+        <pre><code>
+'use client';
+
+import React, { useContext, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { AppContext } from '@/components/AppShell';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { useToast } from "@/hooks/use-toast";
+
+export default function PaymentPage() {
+    const context = useContext(AppContext);
+    const router = useRouter();
+    const { toast } = useToast();
+
+    const [paymentStep, setPaymentStep] = useState<'subject' | 'amount' | 'pay'>('subject');
+    const [paymentSubject, setPaymentSubject] = useState('');
+    const [paymentAmount, setPaymentAmount] = useState('');
+
+    useEffect(() => {
+        if (context && !context.isStudentLoggedIn && !context.isAdminLoggedIn) {
+            router.push('/');
+        }
+    }, [context, router]);
+
+    if (!context || (!context.isStudentLoggedIn && !context.isAdminLoggedIn)) {
+        return <div className="text-center text-white mt-10">&lt;p&gt;Please log in to view this page.&lt;/p&gt;</div>;
+    }
+
+    return (
+        <div className='text-center text-white mt-8'>
+            <h1 className="text-3xl font-bold text-center text-white mb-6">Make a Payment</h1>
+            {paymentStep === 'subject' && (
+              <Card className="bg-white/20 backdrop-blur-sm border-gray-400 text-white max-w-sm mx-auto">
+                <CardHeader>&lt;CardTitle&gt;Step 1: Select Subject&lt;/CardTitle&gt;</CardHeader>
+                <CardContent>
+                   <Select onValueChange={(value) => { setPaymentSubject(value); setPaymentStep('amount'); }}>
+                      <SelectTrigger className="w-full text-black">
+                        <SelectValue placeholder="-- Select Subject --" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Physics">Physics</SelectItem>
+                        <SelectItem value="Chemistry">Chemistry</SelectItem>
+                        <SelectItem value="Biology">Biology</SelectItem>
+                        <SelectItem value="Math">Math</SelectItem>
+                      </SelectContent>
+                    </Select>
+                </CardContent>
+              </Card>
+            )}
+            {paymentStep === 'amount' && (
+               <Card className="bg-white/20 backdrop-blur-sm border-gray-400 text-white max-w-sm mx-auto">
+                <CardHeader>&lt;CardTitle&gt;Step 2: Enter Amount&lt;/CardTitle&gt;</CardHeader>
+                <CardContent className='space-y-4'>
+                    <Input type="number" placeholder="Enter amount" value={paymentAmount} onChange={(e) => setPaymentAmount(e.target.value)} className="text-black" />
+                    <Button onClick={() => paymentAmount && setPaymentStep('pay')}>Continue</Button>
+                </CardContent>
+              </Card>
+            )}
+            {paymentStep === 'pay' && (
+              <Card className="bg-white/20 backdrop-blur-sm border-gray-400 text-white max-w-sm mx-auto">
+                <CardHeader>&lt;CardTitle&gt;Step 3: Select Payment Method&lt;/CardTitle&gt;</CardHeader>
+                <CardContent className="flex justify-center gap-4">
+                  <div className="pay-btn cursor-pointer" onClick={() => toast({ title: "Payment initiated with bKash"})}>
+                    <Image src="https://placehold.co/150x80.png" alt="bKash" width={150} height={80} data-ai-hint="payment logo" />
+                  </div>
+                  <div className="pay-btn cursor-pointer" onClick={() => toast({ title: "Payment initiated with Nagad"})}>
+                    <Image src="https://placehold.co/150x80.png" alt="Nagad" width={150} height={80} data-ai-hint="payment logo" />
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+        </div>
+    );
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/app/results/page.tsx</div>
+        <pre><code>
+'use client';
+
+import React, { useContext, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { AppContext } from '@/components/AppShell';
+import { Card, CardContent } from '@/components/ui/card';
+
+export default function ResultsPage() {
+    const context = useContext(AppContext);
+    const router = useRouter();
+
+    useEffect(() => {
+        if (context && !context.isStudentLoggedIn && !context.isAdminLoggedIn) {
+            router.push('/');
+        }
+    }, [context, router]);
+
+    if (!context || (!context.isStudentLoggedIn && !context.isAdminLoggedIn)) {
+        return <div className="text-center text-white mt-10">&lt;p&gt;Please log in to view this page.&lt;/p&gt;</div>;
+    }
+
+    const { results } = context;
+
+    return (
+        <div>
+            <h1 className="text-3xl font-bold text-center text-white mb-6">Results</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                {results.map((result, index) => (
+                    <Card key={index} className="bg-white/20 backdrop-blur-sm border-gray-400 text-white text-center">
+                    <CardContent className="p-4">
+                        <Image src={result.image} alt={result.name} width={220} height={150} data-ai-hint={result.hint} className="mx-auto rounded-lg mb-4" />
+                        <h3 className="text-xl font-bold">{result.name}</h3>
+                        <p className="text-gray-300">{result.title}</p>
+                    </CardContent>
+                    </Card>
+                ))}
+            </div>
+        </div>
+    );
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/app/routine/page.tsx</div>
+        <pre><code>
+'use client';
+
+import React, { useContext, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { AppContext } from '@/components/AppShell';
+
+export default function RoutinePage() {
+    const context = useContext(AppContext);
+    const router = useRouter();
+
+    useEffect(() => {
+        if (context && !context.isStudentLoggedIn && !context.isAdminLoggedIn) {
+            router.push('/');
+        }
+    }, [context, router]);
+
+    if (!context || (!context.isStudentLoggedIn && !context.isAdminLoggedIn)) {
+        return <div className="text-center text-white mt-10">&lt;p&gt;Please log in to view this page.&lt;/p&gt;</div>;
+    }
+
+    const { routines } = context;
+
+    return (
+        <div>
+            <h1 className="text-3xl font-bold text-center text-white mb-6">Class Routines</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+            {routines.map((item, index) => (
+                <Image key={index} src={item.src} alt={`Routine image ${index + 1}`} width={600} height={400} data-ai-hint={item.hint} className="rounded-lg" />
+            ))}
+            </div>
+        </div>
+    );
+}
+        </code></pre>
+    </div>
+
+    <div class="file-block">
+        <div class="file-header">src/components/AppShell.tsx</div>
+        <pre><code>
+'use client';
+
+import React, { useState, useEffect, useRef, createContext, ReactNode } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import Script from 'next/script';
+import { useToast } from "@/hooks/use-toast";
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Camera, KeyRound, LogIn, Menu, Trash2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+
+// Default Data Interfaces and Values
+interface Mentor { name: string; title: string; image: string; hint: string; }
+interface Routine { src: string; hint: string; }
+interface Course { name: string; title: string; image: string; hint: string; }
+interface Result { name: string; title: string; image: string; hint: string; }
+interface AboutUs { name: string; title: string; image: string; hint: string; }
+interface Post { id: string; authorName: string; authorImage: string; text: string; timestamp: string; image?: string; }
+type AllowedUsers = { [key: string]: string; };
+
+const initialMentorsData: Mentor[] = [
+  { name: "Sir Pial", title: "Biology Mentor", image: "https://placehold.co/220x150.png", hint: "male teacher" },
+  { name: "Sir Aminul Islam", title: "Physics Mentor", image: "https://placehold.co/220x150.png", hint: "male teacher" },
+  { name: "Mr. Hasib", title: "English Mentor", image: "https://placehold.co/220x150.png", hint: "male teacher" }
+];
+const initialRoutineData: Routine[] = [
+  { src: "https://placehold.co/600x400.png", hint: "class schedule"},
+  { src: "https://placehold.co/600x400.png", hint: "timetable"},
+];
+const initialCoursesData: Course[] = [
+  { name: "BIOLOGY", title: "INSTRUCTOR: PIAL", image: "https://placehold.co/220x150.png", hint: "biology textbook" },
+  { name: "CHEMISTRY", title: "INSTRUCTOR: BISWAJIT", image: "https://placehold.co/220x150.png", hint: "chemistry beakers" },
+];
+const initialResultsData: Result[] = [
+  { name: "SSC-2026", title: "ENGLISH 1ST PAPER RESULT", image: "https://placehold.co/220x150.png", hint: "exam results" },
+  { name: "SSC-2025", title: "FINAL MODEL TEST RESULT", image: "https://placehold.co/220x150.png", hint: "certificate" }
+];
+const initialAboutUsData: AboutUs[] = [
+  { name: "MILESTONE ACADEMIC CARE", title: "It is a local educational platform", image: "https://placehold.co/220x150.png", hint: "education classroom" }
+];
+const initialAllowedUsers: AllowedUsers = {
+  "S26001": "01715714269",
+  "S26002": "01703964450",
+};
+
+// Create Context
+export const AppContext = createContext<any>(null);
+
+// Profile Edit Dialog Component
+function ProfileEditDialog({ open, onOpenChange, studentId, initialName, initialPic, onSave }: { open: boolean, onOpenChange: (open: boolean) => void, studentId: string | null, initialName: string, initialPic: string, onSave: (name: string, pic: string) => void }) {
+    const { toast } = useToast();
+    const [name, setName] = useState(initialName);
+    const [pic, setPic] = useState(initialPic);
+    const fileInputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        setName(initialName);
+        setPic(initialPic);
+    }, [initialName, initialPic, open]);
+
+    const handlePicChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const result = e.target?.result as string;
+                setPic(result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const handleSaveClick = () => {
+        if (!name.trim()) {
+            toast({ variant: 'destructive', title: 'Error', description: 'Name cannot be empty.' });
+            return;
+        }
+        onSave(name, pic);
+    };
+
+    return (
+        <Dialog open={open} onOpenChange={onOpenChange}>
+            <DialogContent>
+                <DialogHeader>
+                    <DialogTitle>Edit Profile</DialogTitle>
+                    <DialogDescription>
+                        Update your display name and profile picture.
+                    </DialogDescription>
+                </DialogHeader>
+                <div className="space-y-4 py-4">
+                    <div className="flex flex-col items-center gap-4">
+                        <Image src={pic} alt="Profile Preview" width={100} height={100} className="rounded-full object-cover" />
+                        <Button variant="outline" onClick={() => fileInputRef.current?.click()}>
+                            <Camera className="mr-2 h-4 w-4" />
+                            Change Picture
+                        </Button>
+                        <input type="file" ref={fileInputRef} accept="image/*" onChange={handlePicChange} className="hidden" />
+                    </div>
+                    <div className="space-y-2">
+                        <Label htmlFor="student-name">Display Name</Label>
+                        <Input id="student-name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter your name" />
+                    </div>
+                </div>
+                <CardFooter className="flex justify-end gap-2">
+                    <Button variant="ghost" onClick={() => onOpenChange(false)}>Cancel</Button>
+                    <Button onClick={handleSaveClick}>Save Changes</Button>
+                </CardFooter>
+            </DialogContent>
+        </Dialog>
+    );
+}
+
+// Main AppShell Provider Component
+export function AppShell({ children }: { children: ReactNode }) {
+  const { toast } = useToast();
+  const router = useRouter();
+
+  // Login State
+  const [isStudentLoggedIn, setIsStudentLoggedIn] = useState(false);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+  const [studentId, setStudentId] = useState<string | null>(null);
+  const [studentName, setStudentName] = useState('');
+  const [isStudentLoginOpen, setStudentLoginOpen] = useState(false);
+  const [isAdminLoginOpen, setIsAdminLoginOpen] = useState(false);
+  const [isProfileDialogOpen, setIsProfileDialogOpen] = useState(false);
+  
+  // Form State
+  const [studentMac, setStudentMac] = useState('');
+  const [studentPhone, setStudentPhone] = useState('');
+  const [adminPassword, setAdminPassword] = useState('');
+
+  // Content State
+  const [allowedUsers, setAllowedUsers] = useState<AllowedUsers>(initialAllowedUsers);
+  const [mentors, setMentors] = useState<Mentor[]>(initialMentorsData);
+  const [routines, setRoutines] = useState<Routine[]>(initialRoutineData);
+  const [courses, setCourses] = useState<Course[]>(initialCoursesData);
+  const [results, setResults] = useState<Result[]>(initialResultsData);
+  const [aboutUs, setAboutUs] = useState<AboutUs[]>(initialAboutUsData);
+  const [urgentNotice, setUrgentNotice] = useState('⚠ জরুরি বিজ্ঞপ্তি: আজকে প্রচন্ড বৃষ্টির কারণে সকল ক্লাস বন্ধ থাকবে। অনুগ্রহপূর্বক হোমপেজ চেক করুন।');
+  const [backgroundImage, setBackgroundImage] = useState('https://placehold.co/1920x1080.png');
+  const [logoImage, setLogoImage] = useState('https://placehold.co/300x150.png');
+  const [configuredAdminPassword, setConfiguredAdminPassword] = useState('milestone123');
+  const [newAdminPassword, setNewAdminPassword] = useState('');
+
+  // Profile, Post & Feed State
+  const [profilePic, setProfilePic] = useState('https://placehold.co/80x80.png');
+  const [postText, setPostText] = useState('');
+  const [postImage, setPostImage] = useState<string | null>(null);
+  const [posts, setPosts] = useState<Post[]>([]);
+  
+  // Load data from localStorage on initial render
+  useEffect(() => {
+    try {
+        const studentLoggedIn = localStorage.getItem("studentLoggedIn") === "true";
+        const adminLoggedIn = localStorage.getItem("adminLoggedIn") === "true";
+        const userId = localStorage.getItem("userId");
+        
+        if (studentLoggedIn && userId) {
+            setIsStudentLoggedIn(true);
+            setStudentId(userId);
+            setStudentName(localStorage.getItem(`studentName_${userId}`) || userId);
+            setProfilePic(localStorage.getItem(`profilePic_${userId}`) || 'https://placehold.co/80x80.png');
+        } else if (adminLoggedIn) {
+            setIsAdminLoggedIn(true);
+            setProfilePic('https://placehold.co/80x80.png'); // Default admin pic
+        }
+
+        setUrgentNotice(localStorage.getItem("noticeText") || '⚠ জরুরি বিজ্ঞপ্তি: আজকে প্রচন্ড বৃষ্টির কারণে সকল ক্লাস বন্ধ থাকবে। অনুগ্রহপূর্বক হোমপেজ চেক করুন।');
+        setPosts(JSON.parse(localStorage.getItem("posts") || "[]"));
+        setMentors(JSON.parse(localStorage.getItem("mentorsData") || JSON.stringify(initialMentorsData)));
+        setRoutines(JSON.parse(localStorage.getItem("routineData") || JSON.stringify(initialRoutineData)));
+        setCourses(JSON.parse(localStorage.getItem("coursesData") || JSON.stringify(initialCoursesData)));
+        setResults(JSON.parse(localStorage.getItem("resultsData") || JSON.stringify(initialResultsData)));
+        setAboutUs(JSON.parse(localStorage.getItem("aboutUsData") || JSON.stringify(initialAboutUsData)));
+        setAllowedUsers(JSON.parse(localStorage.getItem("allowedUsersData") || JSON.stringify(initialAllowedUsers)));
+        setBackgroundImage(localStorage.getItem("backgroundImage") || 'https://placehold.co/1920x1080.png');
+        setLogoImage(localStorage.getItem("logoImage") || 'https://placehold.co/300x150.png');
+        setConfiguredAdminPassword(localStorage.getItem("adminPassword") || "milestone123");
+    } catch (error) {
+        console.error("Failed to load data from localStorage", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (backgroundImage) {
+      document.body.style.backgroundImage = `url('${backgroundImage}')`;
+      document.body.style.backgroundSize = 'cover';
+      document.body.style.backgroundPosition = 'center center';
+      document.body.style.backgroundRepeat = 'no-repeat';
+      document.body.style.backgroundAttachment = 'fixed';
+    }
+  }, [backgroundImage]);
+
+  const handleStudentLogin = () => {
+    if (allowedUsers[studentMac] === studentPhone) {
+      localStorage.setItem("studentLoggedIn", "true");
+      localStorage.setItem("userId", studentMac);
+      
+      const newName = localStorage.getItem(`studentName_${studentMac}`) || studentMac;
+      const newPic = localStorage.getItem(`profilePic_${studentMac}`) || 'https://placehold.co/80x80.png';
+
+      setIsStudentLoggedIn(true);
+      setStudentId(studentMac);
+      setStudentName(newName);
+      setProfilePic(newPic);
+      setStudentLoginOpen(false);
+      toast({ title: "Login Successful", description: `Welcome, ${newName}!` });
+      router.push('/');
+    } else {
+      toast({ variant: 'destructive', title: "Login Failed", description: "Invalid MAC ID or Phone number!" });
+    }
+  };
+
+  const handleAdminLogin = () => {
+    if (adminPassword === configuredAdminPassword) {
+      localStorage.setItem("adminLoggedIn", "true");
+      setIsAdminLoggedIn(true);
+      setIsAdminLoginOpen(false);
+      toast({ title: "Admin Login Successful", description: "Welcome, Admin!" });
+      router.push('/');
+    } else {
+      toast({ variant: 'destructive', title: "Login Failed", description: "Invalid Admin Password!" });
+    }
+  };
+  
+  const handleLogout = () => {
+    localStorage.removeItem("studentLoggedIn");
+    localStorage.removeItem("adminLoggedIn");
+    localStorage.removeItem("userId");
+    setIsStudentLoggedIn(false);
+    setIsAdminLoggedIn(false);
+    setStudentId(null);
+    setStudentName('');
+    setProfilePic('https://placehold.co/80x80.png');
+    toast({ title: "Logged out successfully!" });
+    router.push('/');
+  };
+
+  const handleProfileSave = (newName: string, newPic: string) => {
+    if (studentId) {
+        setStudentName(newName);
+        setProfilePic(newPic);
+        localStorage.setItem(`studentName_${studentId}`, newName);
+        localStorage.setItem(`profilePic_${studentId}`, newPic);
+        setIsProfileDialogOpen(false);
+        toast({ title: "Profile updated successfully!" });
+    }
+  };
+
+  const handleImageUpload = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    setter: React.Dispatch<React.SetStateAction<string>>,
+    storageKey: string
+  ) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const result = e.target?.result as string;
+        setter(result);
+        localStorage.setItem(storageKey, result);
+        toast({ title: "Image updated", description: "Your new image has been saved." });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  
+  const handleListImageUpload = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    list: any[],
+    setter: React.Dispatch<React.SetStateAction<any[]>>,
+    storageKey: string,
+    index: number,
+    field: string
+  ) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const result = e.target?.result as string;
+        const updatedList = [...list];
+        updatedList[index] = { ...updatedList[index], [field]: result };
+        setter(updatedList);
+        localStorage.setItem(storageKey, JSON.stringify(updatedList));
+        toast({ title: "Image updated", description: "The image has been saved." });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handlePostImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const result = e.target?.result as string;
+        setPostImage(result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handlePostSubmit = () => {
+    if (!postText.trim() && !postImage) {
+      toast({ variant: 'destructive', title: "Error", description: "Post cannot be empty!" });
+      return;
+    }
+    if (!studentId) {
+        toast({ variant: 'destructive', title: "Error", description: "You must be logged in to post." });
+        return;
+    }
+    const newPost: Post = { 
+      id: studentId,
+      authorName: studentName,
+      authorImage: profilePic,
+      text: postText, 
+      image: postImage || undefined,
+      timestamp: new Date().toISOString() 
+    };
+    const updatedPosts = [newPost, ...posts];
+    setPosts(updatedPosts);
+    localStorage.setItem("posts", JSON.stringify(updatedPosts));
+    toast({ title: "Post Submitted", description: "Your post is now live on the feed!" });
+    setPostText("");
+    setPostImage(null);
+  };
+
+  const handleNoticeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUrgentNotice(e.target.value);
+    localStorage.setItem("noticeText", e.target.value);
+  }
+  
+  const handleContentChange = (list: any[], setter: React.Dispatch<React.SetStateAction<any[]>>, storageKey: string, index: number, field: string, value: string) => {
+    const updatedList = [...list];
+    updatedList[index] = { ...updatedList[index], [field]: value };
+    setter(updatedList);
+    localStorage.setItem(storageKey, JSON.stringify(updatedList));
+  };
+
+  const handleAddItem = (list: any[], setter: React.Dispatch<React.SetStateAction<any[]>>, storageKey: string, newItem: any) => {
+      const updatedList = [...list, newItem];
+      setter(updatedList);
+      localStorage.setItem(storageKey, JSON.stringify(updatedList));
+  };
+  
+  const handleDeleteItem = (list: any[], setter: React.Dispatch<React.SetStateAction<any[]>>, storageKey: string, index: number) => {
+      const updatedList = list.filter((_, i) => i !== index);
+      setter(updatedList);
+      localStorage.setItem(storageKey, JSON.stringify(updatedList));
+  };
+
+  const handleDeletePost = (postTimestamp: string) => {
+    const updatedPosts = posts.filter(p => p.timestamp !== postTimestamp);
+    setPosts(updatedPosts);
+    localStorage.setItem("posts", JSON.stringify(updatedPosts));
+    toast({ title: "Post Deleted", description: "The post has been removed from the feed." });
+  };
+
+  const handleAddStudent = () => {
+    const newId = `NEW-ID-${Date.now()}`;
+    const newUsers = { ...allowedUsers, [newId]: "00000000000" };
+    setAllowedUsers(newUsers);
+    localStorage.setItem("allowedUsersData", JSON.stringify(newUsers));
+  };
+  
+  const handleDeleteStudent = (macIdToDelete: string) => {
+    const newUsers = { ...allowedUsers };
+    delete newUsers[macIdToDelete];
+    setAllowedUsers(newUsers);
+    localStorage.setItem("allowedUsersData", JSON.stringify(newUsers));
+    localStorage.removeItem(`studentName_${macIdToDelete}`);
+    localStorage.removeItem(`profilePic_${macIdToDelete}`);
+    toast({title: "Student Deleted", description: `Student ${macIdToDelete} has been removed.`})
+  };
+  
+  const handleStudentIdUpdate = (oldMacId: string, newMacId: string) => {
+    if (!newMacId || newMacId === oldMacId) return;
+
+    if (allowedUsers[newMacId]) {
+      toast({ variant: 'destructive', title: "Error", description: "This MAC ID already exists." });
+      const input = document.getElementById(`mac-id-${oldMacId}`) as HTMLInputElement;
+      if (input) input.value = oldMacId;
+      return;
+    }
+
+    const phone = allowedUsers[oldMacId];
+    const newUsers = { ...allowedUsers };
+    delete newUsers[oldMacId];
+    newUsers[newMacId] = phone;
+
+    setAllowedUsers(newUsers);
+    localStorage.setItem("allowedUsersData", JSON.stringify(newUsers));
+
+    const oldName = localStorage.getItem(`studentName_${oldMacId}`);
+    const oldPic = localStorage.getItem(`profilePic_${oldMacId}`);
+
+    if (oldName) {
+        localStorage.setItem(`studentName_${newMacId}`, oldName);
+        localStorage.removeItem(`studentName_${oldMacId}`);
+    }
+    if (oldPic) {
+        localStorage.setItem(`profilePic_${newMacId}`, oldPic);
+        localStorage.removeItem(`profilePic_${oldMacId}`);
+    }
+    toast({title: "Student ID Updated", description: `Updated ${oldMacId} to ${newMacId}.`})
+  };
+  
+  const handleStudentPhoneUpdate = (macId: string, newPhone: string) => {
+    const newUsers = { ...allowedUsers, [macId]: newPhone };
+    setAllowedUsers(newUsers);
+    localStorage.setItem("allowedUsersData", JSON.stringify(newUsers));
+  };
+
+  const handlePasswordUpdate = () => {
+    if (!newAdminPassword.trim() || newAdminPassword.length < 4) {
+        toast({ variant: 'destructive', title: "Update Failed", description: "Password must be at least 4 characters." });
+        return;
+    }
+    setConfiguredAdminPassword(newAdminPassword);
+    localStorage.setItem("adminPassword", newAdminPassword);
+    setNewAdminPassword("");
+    toast({ title: "Success", description: "Admin password updated successfully." });
+  };
+  
+  const contextValue = {
+    isStudentLoggedIn, isAdminLoggedIn, studentId, studentName, profilePic,
+    posts, mentors, routines, courses, results, aboutUs, allowedUsers,
+    logoImage, backgroundImage, urgentNotice, newAdminPassword, postText, postImage,
+    
+    setStudentName, setProfilePic, setPosts, setMentors, setRoutines, setCourses, setResults, setAboutUs, setAllowedUsers,
+    setLogoImage, setBackgroundImage, setUrgentNotice, setNewAdminPassword, setPostText, setPostImage,
+
+    handleLogout, handleProfileSave, handleDeletePost, handleContentChange, handleListImageUpload,
+    handleAddItem, handleDeleteItem, handleAddStudent, handleDeleteStudent, handleStudentIdUpdate,
+    handleStudentPhoneUpdate, handleImageUpload, handleNoticeChange, handlePasswordUpdate,
+    handlePostImageUpload, handlePostSubmit
+  };
+
+  return (
+    <AppContext.Provider value={contextValue}>
+      <ProfileEditDialog
+        open={isProfileDialogOpen}
+        onOpenChange={setIsProfileDialogOpen}
+        studentId={studentId}
+        initialName={studentName}
+        initialPic={profilePic}
+        onSave={handleProfileSave}
+      />
+      {(isStudentLoggedIn || isAdminLoggedIn) && (
+        <Script id="chatbase-loader" strategy="lazyOnload">
+          {`
+            window.chatbaseConfig = {
+              chatbotId: "DANtLNNU0AsYMoq2J3-jJ",
+              userId: "${isAdminLoggedIn ? 'admin' : studentId}"
+            };
+            (function(){
+              if(!window.chatbase || window.chatbase("getState")!=="initialized"){
+                window.chatbase=(...arguments)=>{
+                  if(!window.chatbase.q){window.chatbase.q=[]}
+                  window.chatbase.q.push(arguments)
+                };
+                window.chatbase=new Proxy(window.chatbase,{
+                  get(target,prop){
+                    if(prop==="q"){return target.q}
+                    return(...args)=>target(prop,...args)
+                  }
+                })
+              }
+              const onLoad=function(){
+                const script=document.createElement("script");
+                script.src="https://www.chatbase.co/embed.min.js";
+                script.id="DANtLNNU0AsYMoq2J3-jJ";
+                script.domain="www.chatbase.co";
+                document.body.appendChild(script)
+              };
+              if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}
+            })();
+          `}
+        </Script>
+      )}
+
+      <header className="sticky top-0 z-50">
+        <div className="fixed top-4 right-4 z-50">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon" className="bg-white/80 backdrop-blur-sm">
+                <Menu className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem asChild>&lt;Link href="/"&gt;Home&lt;/Link&gt;</DropdownMenuItem>
+              <DropdownMenuItem asChild>&lt;Link href="/mentors"&gt;Mentors&lt;/Link&gt;</DropdownMenuItem>
+              <DropdownMenuItem asChild>&lt;Link href="/routine"&gt;Routine&lt;/Link&gt;</DropdownMenuItem>
+              <DropdownMenuItem asChild>&lt;a href="https://maps.app.goo.gl/PmFRexMgvigJGXww6?g_st=ac" target="_blank" rel="noopener noreferrer"&gt;Location&lt;/a&gt;</DropdownMenuItem>
+              <DropdownMenuItem asChild>&lt;Link href="/results"&gt;Result&lt;/Link&gt;</DropdownMenuItem>
+              <DropdownMenuItem asChild>&lt;Link href="/courses"&gt;Courses&lt;/Link&gt;</DropdownMenuItem>
+              <DropdownMenuItem asChild>&lt;Link href="/payment"&gt;Payment&lt;/Link&gt;</DropdownMenuItem>
+              <DropdownMenuItem asChild>&lt;Link href="/about"&gt;About Us&lt;/Link&gt;</DropdownMenuItem>
+              <DropdownMenuItem asChild>&lt;Link href="/feed"&gt;See All Posts&lt;/Link&gt;</DropdownMenuItem>
+              
+              {!isAdminLoggedIn && !isStudentLoggedIn && (
+                <>
+                <DropdownMenuSeparator />
+                <Dialog open={isStudentLoginOpen} onOpenChange={setStudentLoginOpen}>
+                    <DialogTrigger asChild>&lt;DropdownMenuItem onSelect={(e) => {e.preventDefault(); setStudentLoginOpen(true);}}&gt;Student Login&lt;/DropdownMenuItem&gt;</DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogHeader>&lt;DialogTitle&gt;Student Login&lt;/DialogTitle&gt;</DialogHeader>
+                      <div className="grid gap-4 py-4">
+                        <Input placeholder="Enter MAC ID" value={studentMac} onChange={e => setStudentMac(e.target.value)} />
+                        <Input placeholder="Enter Phone Number" value={studentPhone} onChange={e => setStudentPhone(e.target.value)} />
+                        <Button onClick={handleStudentLogin}>Login</Button>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                  <Dialog open={isAdminLoginOpen} onOpenChange={setIsAdminLoginOpen}>
+                    <DialogTrigger asChild>&lt;DropdownMenuItem onSelect={(e) => {e.preventDefault(); setIsAdminLoginOpen(true);}}&gt;Admin Login&lt;/DropdownMenuItem&gt;</DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogHeader>
+                        <DialogTitle className="flex items-center gap-2">&lt;KeyRound className="h-5 w-5" /&gt;Admin Login</DialogTitle>
+                        <DialogDescription>Enter the administrator password to access the content management panel.</DialogDescription>
+                      </DialogHeader>
+                      <div className="grid gap-4 py-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="admin-password">Password</Label>
+                          <Input id="admin-password" type="password" placeholder="••••••••" value={adminPassword} onChange={e => setAdminPassword(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') { handleAdminLogin(); } }} />
+                        </div>
+                        <Button onClick={handleAdminLogin} className="w-full">&lt;LogIn className="mr-2 h-4 w-4" /&gt;Login</Button>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </>
+              )}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+        
+        {(isStudentLoggedIn || isAdminLoggedIn) && (
+          <div className="fixed top-4 right-20 z-50">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="bg-white/80 backdrop-blur-sm rounded-full shadow-md p-2 flex items-center gap-2 h-auto text-black hover:bg-white/90">
+                  <Image src={profilePic} alt="profile" width={32} height={32} className="rounded-full" data-ai-hint="profile user" />
+                  <span className="font-semibold text-sm">{isStudentLoggedIn ? studentName : 'Admin'}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-40">
+                {isStudentLoggedIn && (
+                  <DropdownMenuItem onSelect={() => setIsProfileDialogOpen(true)}>
+                    Edit Profile
+                  </DropdownMenuItem>
+                )}
+                <DropdownMenuItem onSelect={handleLogout}>
+                  Logout
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        )}
+
+        <div className="logo-container" id="logo-container">
+            <Image width="300" height="150" src={logoImage} alt="Milestone Academic Care Logo" className="logo" data-ai-hint="academic logo" />
+            <h1 className='typing-h1'>Milestone Academic Care</h1>
+            <div className="scrolling-alert-container">
+            <h2 className="scrolling-alert-text">{urgentNotice}</h2>
+            </div>
+        </div>
+      </header>
+      
+      <main className='p-4 md:p-8'>
+        {children}
+      </main>
+
+      <footer className="text-center py-8 text-white mt-auto">
+        <div className="contact-us my-4">
+          <h2 className="text-2xl font-bold">Contact Us</h2>
+          <div className='flex justify-center gap-4 mt-2'>
+            <a href="https://www.facebook.com/share/1Z3Eh2891F/" target="_blank" rel="noopener noreferrer">
+              <Image src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="50" height="50" />
+            </a>
+            <a href="https://wa.me/8801644477711" target="_blank" rel="noopener noreferrer">
+              <Image src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50" />
+            </a>
+          </div>
+        </div>
+        <p className='text-sm'>™©COPYRIGHT ALL RESERVED - 2025</p>
+      </footer>
+    </AppContext.Provider>
+  );
+}
+        </code></pre>
+    </div>
+
+    <!-- UI COMPONENTS -->
+    <div class="file-block">
+        <div class="file-header">src/components/ui/accordion.tsx</div>
+        <pre><code>
+"use client"
+
+import * as React from "react"
+import * as AccordionPrimitive from "@radix-ui/react-accordion"
+import { ChevronDown } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+const Accordion = AccordionPrimitive.Root
+
+const AccordionItem = React.forwardRef<
+  React.ElementRef<typeof AccordionPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
+>(({ className, ...props }, ref) => (
+  <AccordionPrimitive.Item
+    ref={ref}
+    className={cn("border-b", className)}
+    {...props}
+  />
+))
+AccordionItem.displayName = "AccordionItem"
+
+const AccordionTrigger = React.forwardRef<
+  React.ElementRef<typeof AccordionPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
+>(({ className, children, ...props }, ref) => (
+  <AccordionPrimitive.Header className="flex">
+    <AccordionPrimitive.Trigger
+      ref={ref}
+      className={cn(
+        "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
+        className
+      )}
+      {...props}
+    >
+      {children}
+      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
+    </AccordionPrimitive.Trigger>
+  </AccordionPrimitive.Header>
+))
+AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
+
+const AccordionContent = React.forwardRef<
+  React.ElementRef<typeof AccordionPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
+>(({ className, children, ...props }, ref) => (
+  <AccordionPrimitive.Content
+    ref={ref}
+    className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    {...props}
+  >
+    <div className={cn("pb-4 pt-0", className)}>{children}</div>
+  </AccordionPrimitive.Content>
+))
+
+AccordionContent.displayName = AccordionPrimitive.Content.displayName
+
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
+        </code></pre>
+    </div>
+
+    <!-- ... (Continue for all other UI components) ... -->
+
+     <div class="file-block">
+        <div class="file-header">src/lib/utils.ts</div>
+        <pre><code>
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+        </code></pre>
+    </div>
+
+     <div class="file-block">
+        <div class="file-header">tailwind.config.ts</div>
+        <pre><code>
+import type {Config} from 'tailwindcss';
+
+export default {
+  darkMode: ['class'],
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      fontFamily: {
+        body: ['Inter', 'sans-serif'],
+        headline: ['Space Grotesk', 'sans-serif'],
+        code: ['monospace'],
+      },
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        chart: {
+          '1': 'hsl(var(--chart-1))',
+          '2': 'hsl(var(--chart-2))',
+          '3': 'hsl(var(--chart-3))',
+          '4': 'hsl(var(--chart-4))',
+          '5': 'hsl(var(--chart-5))',
+        },
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
+      keyframes: {
+        'accordion-down': {
+          from: {
+            height: '0',
+          },
+          to: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+        },
+        'accordion-up': {
+          from: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+          to: {
+            height: '0',
+          },
+        },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+    },
+  },
+  plugins: [require('tailwindcss-animate')],
+} satisfies Config;
+        </code></pre>
+    </div>
+
+     <div class="file-block">
+        <div class="file-header">tsconfig.json</div>
+        <pre><code>
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+        </code></pre>
+    </div>
+
+</body>
+</html>
